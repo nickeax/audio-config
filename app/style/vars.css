@@ -1,0 +1,31 @@
+:root {
+  --sectionHeaderFontSize: 1.1rem;
+  --headerBackgroundColor: rgba(0, 0, 0, 0.2);
+  --headerTextColor: rgba(255, 255, 255, 0.55);
+  --headerTextOutlineColor: rgba(0, 0, 0, 0.05);
+  --headerTextShadow: 0px 0px 1px var(--headerTextOutlineColor);
+
+  --darkest: #1C1C1C;
+  --mainDark: #3C464E;
+  --mainLight: #FCFBFC;
+
+  --mainPrimary: #6F202B;
+  --mainPrimaryHighlight: #AD6068;
+
+  --mainSecondary: #13374D;
+  --mainSecondaryHighlight: #678699;
+
+  --lightestHighlightPrimary: #F3FFF7;
+  /* light green LED */
+  --lightestHighlightSecondary: #FFFBF3;
+  /* light red LED */
+
+
+  --cornerRadiusMin: 5px;
+  --cornerRadiusMed: 17px;
+  --cornerRadiusMax: 25px;
+
+  --paddingMin: 5px;
+  --paddingMed: 10px;
+  --paddingMax: 15px;
+}

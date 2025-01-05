@@ -1,4 +1,25 @@
 export class Common {
-  TRS_CONFIGS = ['TRS', 'TS', 'XLR', 'RCA', 'Speakon', 'Other'];
-  EQUIPMENT_TYPES = ['Rack', 'Mixing Console', 'Compressor', 'Multi FX', 'Paragraphic Equaliser', 'Parametric Equaliser', 'Graphic Equaliser', 'Cable', 'Microphone', 'Speaker', 'Other'];
+  TRS_CONFIGS = {
+    TRS: 'TRS',
+    TS: 'TS',
+    XLR: 'XLR',
+    RCA: 'RCA',
+    Speakon: 'Speakon',
+    Other: 'Other'
+  };
+
+  EQUIPMENT_TYPES = {
+    Rack: 'Rack',
+    MixingConsole: 'Mixing Console',
+    PatchBay: 'Patch Bay',
+    Compressor: 'Compressor',
+    MFX: 'Multi FX',
+    ParagraphicEqualiser: 'Paragraphic Equaliser',
+    ParametricEqualiser: 'Parametric Equaliser',
+    GraphicEqualiser: 'Graphic Equaliser',
+    Cable: 'Cable',
+    Microphone: 'Microphone',
+    Speaker: 'Speaker',
+    Other: 'Other'
+  };
 }

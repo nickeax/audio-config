@@ -6,19 +6,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./app/style/index.css">
   <script src="./app/index.js" type="module" defer></script>
-  <title>Drag Drop</title>
+  <title>Studio Configuration</title>
 </head>
 
 <body>
-  <div id="dropzone" class="dropzone"></div>
-  <img src="./app/media/dbx.png" id="drag1" draggable="true"></img>
+  <div class="container appBorder panelShadow topRadius">
+    <header class="topRadius">
+      <div class="sectionHeader topRadius">Studio Equipment Wrangler</div>
+    </header>
+
+    <nav class="appBorder panelShadow">
+      <div class="sectionHeader ">Menu</div>
+      <ul>
+        <li><button id="drag1" draggable="true">dbx</button></li>
+        <li><button id="drag2" draggable="true">Neve</button></li>
+        <li><button id="drag3" draggable="true">EQ351</button></li>
+        <li><button id="drag4" draggable="true">RollsEQ</button></li>
+        <li><button id="drag5" draggable="true">Patchbay1</button></li>
+        <li><button id="drag6" draggable="true">Patchbay2</button></li>
+      </ul>
+    </nav>
+
+    <main id="studioEquipment" class="studioEquipment appBorder panelShadow">
+      <div class="sectionHeader">Current Configuration</div>
+    </main>
+
+    <div class="editConfiguration appBorder panelShadow">
+      <form id="editConfigForm">
+        <div class="sectionHeader">Operations</div>
+        <label for="equipmentName">Equipment Name:</label>
+        <input type="text" id="equipmentName" name="equipmentName" required>
+
+        <label for="equipmentType">Equipment Type:</label>
+        <select id="equipmentType" name="equipmentType" required>
+          // Options will be populated by the JS
+        </select>
+
+        <label for="equipmentPosition">Position:</label>
+        <input type="number" id="equipmentPosition" name="equipmentPosition" required>
+
+        <button type="submit">Save Configuration</button>
+      </form>
+    </div>
+
+    <div class="options appBorder panelShadow">
+      <div class="sectionHeader">Options</div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy;
+      <script>document.writeln(new Date().getUTCFullYear())</script> Studio Equipment Wrangler
+    </p>
+  </footer>
+</body>
+
+</html>
+<!-- <img src="./app/media/dbx.png" id="drag1" draggable="true"></img>
   <img src="./app/media/neve.png" id="drag2" draggable="true"></img>
   <img src="./app/media/eq351.png" id="drag3" draggable="true"></img>
   <img src="./app/media/rollsEQ.png" id="drag4" draggable="true"></img>
   <img src="./app/media/patchbay1.png" id="drag5" draggable="true"></img>
-  <img src="./app/media/patchbay2.png" id="drag6" draggable="true"></img>
-  <!-- <img src="neve.png" id="drag1" draggable="true"></img>
-  <img src="neve.png" id="drag1" draggable="true"></img> -->
-</body>
-
-</html>
+  <img src="./app/media/patchbay2.png" id="drag6" draggable="true"></img> -->
+<!-- <img src="neve.png" id="drag1" draggable="true"></img>
+    <img src="neve.png" id="drag1" draggable="true"></img> -->
