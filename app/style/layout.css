@@ -1,0 +1,7 @@
+@import './reset.css';
+@import './layout.css';
+
+img {
+  width: 757px;
+  height: 70px;
+}
