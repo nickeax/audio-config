@@ -5,7 +5,7 @@ export class StudioService {
     this.studioRepository = new StudioRepository();
   }
 
-  createStudio(studio) {
+  async createStudio(studio) {
     this.studios.push(studio);
   }
 

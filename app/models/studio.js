@@ -1,5 +1,6 @@
 export class Studio {
   constructor() {
+    this.id = '';
     this.name = '';
     this.address = '';
     this.city = '';

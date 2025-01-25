@@ -1,6 +1,8 @@
 export class Ui {
-  constructor() {
+  constructor(studioManager) {
 
+    this.studioManager = studioManager;
+    this.studioManager.drawStudioMainPage();
   }
 
   processClick() {

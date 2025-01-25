@@ -1,0 +1,26 @@
+.backdrop {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  background: #deb887;
+  /* Base wood color */
+  background: repeating-linear-gradient(0deg,
+      #4c3211 0%,
+      #292116 2%,
+      #372612 2%,
+      #36240e 4%,
+      #4f3a1e 4%,
+      #362106 6%);
+  background-size: 100% 20px;
+  overflow: hidden;
+}
+
+.woodgrain {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05));
+  mix-blend-mode: overlay;
+}

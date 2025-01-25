@@ -1,7 +1,9 @@
-import { Ui } from "./modules/ui.js";
-import { Patchbay } from "./models/patchBay.js";
+import { Factory } from "./modules/factory.js";
 
-const ui = new Ui();
+const fac = new Factory();
 
-const pb = new Patchbay(8);
-console.log(pb);
+
+const ui = fac.createInstance('Ui');
+
+
+

@@ -1,5 +1,5 @@
 export class Common {
-  TRS_CONFIGS = {
+  static TRS_CONFIGS = {
     TRS: 'TRS',
     TS: 'TS',
     XLR: 'XLR',
@@ -8,7 +8,7 @@ export class Common {
     Other: 'Other'
   };
 
-  EQUIPMENT_TYPES = {
+  static EQUIPMENT_TYPES = {
     Rack: 'Rack',
     MixingConsole: 'Mixing Console',
     PatchBay: 'Patch Bay',
@@ -22,4 +22,6 @@ export class Common {
     Speaker: 'Speaker',
     Other: 'Other'
   };
+
+  static APP_ID = 'audio_config_app_v1.00';
 }

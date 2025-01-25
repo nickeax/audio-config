@@ -12,7 +12,7 @@ export class StudioRepository {
 
   // Get all studios from the repository
   getStudios() {
-    return this.studios;
+    localStorage.getItem;
   }
 
   // Get a studio by id
@@ -24,7 +24,7 @@ export class StudioRepository {
   addEquipment(studioId, equipment) {
     const studio = this.getStudioById(studioId);
     studio.equipment.push(equipment);
-    localStorage.setItem('studios', JSON.stringify(this.studios));
+    localStorage.setItem(studioId, JSON.stringify(this.studios));
   }
 
 }

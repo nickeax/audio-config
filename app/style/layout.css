@@ -1,5 +1,6 @@
 @import './reset.css';
 @import './vars.css';
+@import './backgrounds.css';
 @import './dragDrop.css';
 
 body {
@@ -29,6 +30,7 @@ li {
 .topRadius {
   border-top-left-radius: var(--cornerRadiusMed);
   border-top-right-radius: var(--cornerRadiusMed);
+  background-color: var(--mainPrimary);
 }
 
 .appBorder {
@@ -63,6 +65,7 @@ header {
   grid-area: header;
   background-color: var(--mainSecondaryHighlight);
   text-align: center;
+  font-size: 2rem;
 }
 
 nav {
