@@ -1,0 +1,4 @@
+.topRadius {
+  border-top-left-radius: var(--cornerRadiusMed);
+  border-top-right-radius: var(--cornerRadiusMed);
+}

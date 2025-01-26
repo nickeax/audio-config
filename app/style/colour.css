@@ -1,0 +1,85 @@
+@import './vars.css';
+
+.backgroundDarkest {
+  background-color: var(--darkest);
+}
+
+.backgroundMainDark {
+  background-color: var(--mainDark);
+}
+
+.backgroundMainLight {
+  background-color: var(--mainLight);
+}
+
+.backgroundMainPrimary {
+  background-color: var(--mainPrimary);
+}
+
+.backgroundMainSecondary {
+  background-color: var(--mainSecondary);
+}
+
+.backgroundMainPrimaryHighlight {
+  background-color: var(--mainPrimaryHighlight);
+}
+
+.backgroundMainSecondaryHighlight {
+  background-color: var(--mainSecondaryHighlight);
+}
+
+.backgroundLightestHighlightPrimary {
+  background-color: var(--lightestHighlightPrimary);
+}
+
+.backgroundLightestHighlightSecondary {
+  background-color: var(--lightestHighlightSecondary);
+}
+
+.textDarkest {
+  color: var(--darkest);
+}
+
+.textMainDark {
+  color: var(--mainDark);
+}
+
+.textMainLight {
+  color: var(--mainLight);
+}
+
+.textMainPrimary {
+  color: var(--mainPrimary);
+}
+
+.textMainSecondary {
+  color: var(--mainSecondary);
+}
+
+.textMainPrimaryHighlight {
+  color: var(--mainPrimaryHighlight);
+}
+
+.textMainSecondaryHighlight {
+  color: var(--mainSecondaryHighlight);
+}
+
+.textLightestHighlightPrimary {
+  color: var(--lightestHighlightPrimary);
+}
+
+.textLightestHighlightSecondary {
+  color: var(--lightestHighlightSecondary);
+}
+
+.textHeaderBackgroundColor {
+  color: var(--headerBackgroundColor);
+}
+
+.textHeaderTextColor {
+  color: var(--headerTextColor);
+}
+
+.fadedText {
+  color: rgba(255, 255, 255, 0.05);
+}

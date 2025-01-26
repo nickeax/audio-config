@@ -6,9 +6,6 @@
 body {
   font-family: Arial, sans-serif;
   font-weight: 100;
-  margin: 0;
-  padding: 0;
-  background-color: var(--darkest);
 }
 
 li {
@@ -16,7 +13,6 @@ li {
 }
 
 .container {
-  background-color: var(--mainDark);
   display: grid;
   grid-template-columns: 10% auto auto 10%;
   grid-template-rows: auto auto auto;
@@ -27,81 +23,38 @@ li {
     "footer footer footer footer";
 }
 
-.panel {
-  padding: var(--paddingMed);
-}
+.panel {}
 
-.lightText {
-  color: var(--mainLight);
-}
-
-.topRadius {
-  border-top-left-radius: var(--cornerRadiusMed);
-  border-top-right-radius: var(--cornerRadiusMed);
-  background-color: var(--mainPrimary);
-}
-
-.appBorder {
-  margin: 11px;
-}
 
 .panelShadow {
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.panelPadding-1 {
-  padding: 1px;
-}
-
-.panelPadding-2 {
-  padding: 2px;
-}
-
-.panelPadding-3 {
-  padding: 3px;
-}
-
-.panelPadding-4 {
-  padding: 4px;
-}
-
-.panelPadding-5 {
-  padding: 5px;
-}
-
 header {
   grid-area: header;
-  background-color: var(--darkest);
   text-align: center;
 }
 
 nav {
   grid-area: nav;
-  background-color: var(--mainDark);
 }
 
 main {
   grid-area: main;
-  background-color: var(--mainSecondary);
   height: 90vh;
 }
 
 .editConfiguration {
   grid-area: editSetup;
-  background-color: var(--mainSecondaryHighlight);
 }
 
 .options {
   grid-area: options;
-  background-color: var(--mainDark);
 }
 
 footer {
-  background-color: var(--darkest);
-  color: aliceblue;
   grid-area: footer;
   text-align: center;
-  padding: 10px;
 }
 
 img {
@@ -110,23 +63,8 @@ img {
 }
 
 .sectionHeader {
-  background-color: var(--mainPrimary);
-  color: var(--headerTextColor);
   text-align: left;
   font-size: 1.5em;
   font-weight: 100;
-  padding: 10px;
-  margin: 0;
-
-  overflow: hidden;
-}
-
-.fadedText {
-  color: rgba(255, 255, 255, 0.05);
-}
-
-.topRadius {
-  border-top-left-radius: var(--cornerRadiusMed);
-  border-top-right-radius: var(--cornerRadiusMed);
   overflow: hidden;
 }

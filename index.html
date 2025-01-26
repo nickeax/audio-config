@@ -9,31 +9,33 @@
   <title>Studio Configuration</title>
 </head>
 
-<body>
-  <div class="container appBorder panelShadow topRadius">
-    <header>
-      <div class="sectionHeader fadedText lightBackground">Studio Equipment Wrangler</div>
+<body class="backgroundMainDark">
+  <div class="container">
+    <header class="backgroundDarkest">
+      <div class="sectionHeader fadedText padding-5">Studio Equipment Wrangler</div>
     </header>
 
-    <nav class="appBorder panelShadow topRadius">
-      <div id="studioSelectionHeader" class="sectionHeader ">Studio Selection</div>
+    <nav class="appBorder panelShadow topRadius backgroundMainPrimary padding-9">
+      <div id="studioSelectionHeader" class="sectionHeader textMainLight mb-9">Studio Selection</div>
       <div class="panel lightText" id="studioSelection"></div>
     </nav>
 
-    <main id="studioEquipment" class="studioEquipment appBorder panelShadow topRadius">
-      <div class="sectionHeader">Current Configuration</div>
-      <div class="panel lightText" id="currentConfiguration"></div>
+    <main id="studioEquipment" class="appBorder panelShadow topRadius backgroundMainSecondary padding-9">
+      <div class="sectionHeader textMainLight mb-9">Current Configuration</div>
+      <div class="panel backgroundMainSecondary textMainLight" id="currentConfiguration"></div>
     </main>
 
-    <div class="editConfiguration appBorder panelShadow topRadius">
-      <div id="operations" class="sectionHeader">Operations</div>
+    <div class="editConfiguration appBorder panelShadow topRadius padding-9">
+      <div id="operations" class="sectionHeader textMainLight mb-9">Operations</div>
+      <div class="panel lightText" id="operationsPanel"></div>
     </div>
 
-    <div class="options appBorder panelShadow topRadius">
-      <div class="sectionHeader">Options</div>
+    <div class="options appBorder panelShadow topRadius backgroundMainPrimary padding-9">
+      <div class="sectionHeader textMainLight mb-9">Options</div>
     </div>
+
   </div>
-  <footer>
+  <footer class="backgroundDarkest textMainLight padding-9">
     <p>&copy;
       <script>document.writeln(new Date().getUTCFullYear())</script> Studio Equipment Wrangler
     </p>
