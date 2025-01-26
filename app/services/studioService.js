@@ -1,3 +1,4 @@
+import { StudioServiceResponse } from "../models/responses/studioServiceResponse.js";
 import { StudioRepository } from "../repositories/studioRepository.js";
 
 export class StudioService {
@@ -14,7 +15,13 @@ export class StudioService {
   }
 
   getStudios() {
-    throw new Error("StudioService.getStudios() not implemented");
+    let ret = new StudioServiceResponse();
+    let res = this.studioRepository.getStudios();
+    if (res) {
+      ret.any = true;
+      ret.studios = res;
+    }
+    return ret;
   }
 
   getEquipment() {

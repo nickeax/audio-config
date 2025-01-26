@@ -27,6 +27,14 @@ li {
     "footer footer footer footer";
 }
 
+.panel {
+  padding: var(--paddingMed);
+}
+
+.lightText {
+  color: var(--mainLight);
+}
+
 .topRadius {
   border-top-left-radius: var(--cornerRadiusMed);
   border-top-right-radius: var(--cornerRadiusMed);
@@ -63,9 +71,8 @@ li {
 
 header {
   grid-area: header;
-  background-color: var(--mainSecondaryHighlight);
+  background-color: var(--darkest);
   text-align: center;
-  font-size: 2rem;
 }
 
 nav {
@@ -103,12 +110,23 @@ img {
 }
 
 .sectionHeader {
-  background-color: var(--headerBackgroundColor);
+  background-color: var(--mainPrimary);
   color: var(--headerTextColor);
   text-align: left;
-  text-shadow: var(--headerTextShadow);
   font-size: 1.5em;
   font-weight: 100;
   padding: 10px;
   margin: 0;
+
+  overflow: hidden;
+}
+
+.fadedText {
+  color: rgba(255, 255, 255, 0.05);
+}
+
+.topRadius {
+  border-top-left-radius: var(--cornerRadiusMed);
+  border-top-right-radius: var(--cornerRadiusMed);
+  overflow: hidden;
 }

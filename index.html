@@ -11,45 +11,25 @@
 
 <body>
   <div class="container appBorder panelShadow topRadius">
-    <header class="topRadius">
-      <div class="sectionHeader topRadius">Studio Equipment Wrangler</div>
+    <header>
+      <div class="sectionHeader fadedText lightBackground">Studio Equipment Wrangler</div>
     </header>
 
-    <nav class="appBorder panelShadow">
-      <div class="sectionHeader ">Menu</div>
-      <ul>
-        <li><button id="drag1" draggable="true">dbx</button></li>
-        <li><button id="drag2" draggable="true">Neve</button></li>
-        <li><button id="drag3" draggable="true">EQ351</button></li>
-        <li><button id="drag4" draggable="true">RollsEQ</button></li>
-        <li><button id="drag5" draggable="true">Patchbay1</button></li>
-        <li><button id="drag6" draggable="true">Patchbay2</button></li>
-      </ul>
+    <nav class="appBorder panelShadow topRadius">
+      <div id="studioSelectionHeader" class="sectionHeader ">Studio Selection</div>
+      <div class="panel lightText" id="studioSelection"></div>
     </nav>
 
-    <main id="studioEquipment" class="studioEquipment appBorder panelShadow">
+    <main id="studioEquipment" class="studioEquipment appBorder panelShadow topRadius">
       <div class="sectionHeader">Current Configuration</div>
+      <div class="panel lightText" id="currentConfiguration"></div>
     </main>
 
-    <div class="editConfiguration appBorder panelShadow">
-      <form id="editConfigForm" data-form1="This is form 1.">
-        <div class="sectionHeader">Operations</div>
-        <label for="equipmentName">Equipment Name:</label>
-        <input type="text" id="equipmentName" name="equipmentName" required>
-
-        <label for="equipmentType">Equipment Type:</label>
-        <select id="equipmentType" name="equipmentType" required>
-          // Options will be populated by the JS
-        </select>
-
-        <label for="equipmentPosition">Position:</label>
-        <input type="number" id="equipmentPosition" name="equipmentPosition" required>
-
-        <button type="submit">Save Configuration</button>
-      </form>
+    <div class="editConfiguration appBorder panelShadow topRadius">
+      <div id="operations" class="sectionHeader">Operations</div>
     </div>
 
-    <div class="options appBorder panelShadow">
+    <div class="options appBorder panelShadow topRadius">
       <div class="sectionHeader">Options</div>
     </div>
   </div>

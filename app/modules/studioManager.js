@@ -3,6 +3,8 @@ import { Rack } from '../models/rack.js';
 export class StudioManager {
   constructor(studioService) {
     this.studioOutput = document.querySelector('#studioOutput');
+    this.currentConfiguration = document.querySelector('#currentConfiguration');
+    this.studioSelection = document.querySelector('#studioSelection');
 
     this.studioService = studioService;
 
@@ -11,8 +13,34 @@ export class StudioManager {
     this.racks = [];
     this.patchBays = [];
 
-    // Load studios from local storage
-    this.studios = this.studioService.getStudios();
+    this.refreshState();
+  }
+
+  refreshState() {
+    let res = this.studioService.getStudios();
+
+    this.createStudioList(res.studios);
+
+    if (res.any) {
+      this.studios = res.studios;
+    } else {
+      this.currentConfiguration.appendChild(this.drawStudioCreateForm());
+    }
+  }
+
+  createStudioList(studios) {
+    if (studios.length > 0) {
+      let ul = document.createElement('ul');
+      studios.forEach(s => {
+        let li = document.createElement('li');
+        li.innerText = s.name;
+        ul.appendChild(li);
+      });
+      this.studioSelection.appendChild(ul);
+    } else {
+      this.studioSelection.innerHTML = 'No studios found, please create one.';
+    }
+
   }
 
   // Equipment

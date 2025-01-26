@@ -1,5 +1,6 @@
 import { StudioManager } from "./studioManager.js";
 import { StudioRepository } from "../repositories/studioRepository.js";
+import { StudioService } from "../services/studioService.js";
 import { Ui } from "./ui.js";
 
 export class Factory {
@@ -13,7 +14,7 @@ export class Factory {
   }
 
   createStudioManager() {
-    return new StudioManager(this.createStudioRepository());
+    return new StudioManager(this.createStudioService());
   }
 
   createUi() {
