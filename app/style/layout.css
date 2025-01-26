@@ -18,16 +18,16 @@ li {
   grid-template-rows: auto auto auto auto;
   border-radius: var(--cornerRadiusMed);
   grid-template-areas:
-    "header header header header header"
+    "spacerLeft header header header spacerRight"
     "spacerLeft nav main editConfiguration spacerRight"
     "spacerLeft options main editConfiguration spacerRight"
-    "footer footer footer footer footer ";
+    "spacerLeft footer footer footer spacerRight ";
 }
 
 .panel {}
 
 .panelShadow {
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.42);
 }
 
 header {

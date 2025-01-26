@@ -1,4 +1,9 @@
 .topRadius {
-  border-top-left-radius: var(--cornerRadiusMed);
-  border-top-right-radius: var(--cornerRadiusMed);
+  border-top-left-radius: var(--cornerRadiusMin);
+  border-top-right-radius: var(--cornerRadiusMin);
+  /* border: 1px solid var(--darkerTintColorHalf); */
+}
+
+.sectionHeaderBorder {
+  border: 1px solid var(--darkerTintColorHalf);
 }
