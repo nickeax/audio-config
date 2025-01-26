@@ -2,7 +2,7 @@
   --sectionHeaderFontSize: 1.1rem;
   --headerBackgroundColor: rgba(0, 0, 0, 0.2);
   --headerTextColor: rgba(255, 255, 255, 0.55);
-  --headerTextOutlineColor: rgba(0, 0, 0, 0.05);
+  --darkerTintColor: rgba(0, 0, 0, 0.2);
   --headerTextShadow: 0px 0px 1px var(--headerTextOutlineColor);
 
   --darkest: #1C1C1C;

@@ -14,17 +14,17 @@ li {
 
 .container {
   display: grid;
-  grid-template-columns: 10% auto auto 10%;
-  grid-template-rows: auto auto auto;
-  border-radius: vasr(--cornerRadiusMed);
+  grid-template-columns: 3% 10% auto auto 3%;
+  grid-template-rows: auto auto auto auto;
+  border-radius: var(--cornerRadiusMed);
   grid-template-areas:
-    "header header header header"
-    "nav main editSetup options"
-    "footer footer footer footer";
+    "header header header header header"
+    "spacerLeft nav main editConfiguration spacerRight"
+    "spacerLeft options main editConfiguration spacerRight"
+    "footer footer footer footer footer ";
 }
 
 .panel {}
-
 
 .panelShadow {
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
@@ -44,8 +44,16 @@ main {
   height: 90vh;
 }
 
+.spacerLeft {
+  grid-area: spacerLeft;
+}
+
+.spacerRight {
+  grid-area: spacerRight;
+}
+
 .editConfiguration {
-  grid-area: editSetup;
+  grid-area: editConfiguration;
 }
 
 .options {
@@ -67,4 +75,5 @@ img {
   font-size: 1.5em;
   font-weight: 100;
   overflow: hidden;
+  padding: var(--paddingMed);
 }
