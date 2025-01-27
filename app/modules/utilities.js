@@ -19,22 +19,39 @@ export class Utilities {
     return element;
   }
 
-  static createFormElementWithLabel(type, id, label) {
+  static createFormElementWithLabel(type, id, classes, label, placeholder = '') {
     let formElement = document.createElement('div');
     formElement.classList.add('formElement');
 
     let labelElement = document.createElement('label');
-    labelElement.classList.add('darkerTintColour');
     labelElement.id = id + 'Label';
     labelElement.for = id;
     labelElement.innerText = label;
+
     formElement.appendChild(labelElement);
 
     let inputElement = document.createElement(type);
-    inputElement.classList.add('darkerTintColour');
-    inputElement.classList.add('textMainLight');
-    inputElement.type = type;
-    inputElement.id = id;
+
+    if (classes.length > 0) {
+      classes.forEach(c => {
+        inputElement.classList.add(c);
+      });
+    }
+
+
+    switch (type) {
+      case 'input':
+        inputElement.type = type;
+        inputElement.id = id;
+        inputElement.placeholder = placeholder;
+        break;
+      case 'button':
+        inputElement.innerText = label;
+      case 'textarea':
+        break;
+      default:
+        throw new Error('Invalid form element type');
+    }
     formElement.appendChild(inputElement);
 
     return formElement;

@@ -129,16 +129,17 @@ export class StudioManager {
   drawStudioCreateForm() {
     let form = document.createElement('form');
     form.id = 'studioCreateForm';
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioName', 'Name'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioPurpose', 'Purpose'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioAddress', 'Studio Name'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'city', 'City'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'state', 'State'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'zip', 'Zip/postal code'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'phone', 'Phone'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'email', 'Email'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'website', 'Website'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'notes', 'Notes'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioName', ['darkerTintColour', 'textMainLight'], 'Name', 'Enter the studio name'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioPurpose', ['darkerTintColour', 'textMainLight'], 'Purpose', 'Primary purpose of the studio'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioAddress', ['darkerTintColour', 'textMainLight'], 'Studio Name', 'Title of studio'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'city', ['darkerTintColour', 'textMainLight'], 'City', 'Studio city name'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'state', ['darkerTintColour', 'textMainLight'], 'State', 'Studio state name'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'zip', ['darkerTintColour', 'textMainLight'], 'Zip/postal code', 'Studio zip/postal code'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'phone', ['darkerTintColour', 'textMainLight'], 'Phone', 'Studio phone number'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'email', ['darkerTintColour', 'textMainLight'], 'Email', 'Studio email address'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'website', ['darkerTintColour', 'textMainLight'], 'Website', 'Studio website'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'notes', ['darkerTintColour', 'textMainLight'], 'Notes', 'Studio notes'));
+    form.appendChild(Utilities.createFormElementWithLabel('button', 'btnCreateStudio', ['btn', 'btnSuccess'], 'Create Studio'));
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();

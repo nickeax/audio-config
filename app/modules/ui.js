@@ -2,13 +2,15 @@ export class Ui {
   constructor(studioManager) {
 
     this.studioManager = studioManager;
+
+    document.addEventListener('click', ev => this.processClick(ev));
   }
 
-  processClick() {
-    throw new Error("Ui.processClick() not implemented");
+  processClick(ev) {
+    console.log(`There was a click!`, ev.target);
   }
 
-  processInput() {
+  processInput(ev) {
     throw new Error("Ui.processInput() not implemented");
   }
 }

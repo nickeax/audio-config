@@ -6,11 +6,12 @@
   --darkerTintColorHalf: rgba(255, 255, 255, 0.07);
 
   --darkest: #1C1C1C;
-  --mainDark: hsl(207, 13%, 27%);
+  --mainDark: hsl(207, 13%, 37%);
   --mainDarkLighter: rgba(111, 32, 43, 0.9);
   --mainLight: #FCFBFC;
+  --mainBackground: #1C1C1C;
 
-  --mainPrimary: rgb(111, 32, 43);
+  --mainPrimary: hsl(352, 25%, 28%);
   --mainPrimaryHighlight: #AD6068;
 
   --mainSecondary: #13374D;
@@ -20,6 +21,14 @@
   /* light green LED */
   --lightestHighlightSecondary: #FFFBF3;
   /* light red LED */
+
+  --actionSuccess: hsl(120, 41%, 32%);
+  --actionSuccessHover: hsl(120, 41%, 42%);
+  --actionSuccessActive: hsl(120, 41%, 35%);
+  --actionFail: hsl(0, 45%, 43%);
+  --actionFailHover: hsl(0, 45%, 53%);
+  --actionFailActive: hsl(0, 45%, 46%);
+  --actionOverlay: rgba(255, 255, 255, 0.5);
 
   /* Transparencies */
   --transparent: rgba(0, 0, 0, 0);

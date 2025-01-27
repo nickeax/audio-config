@@ -5,7 +5,7 @@
 }
 
 .backgroundMainDark {
-  background-color: var(--mainDarkLighter);
+  background-color: var(--mainBackground);
 }
 
 .backgroundMainLight {

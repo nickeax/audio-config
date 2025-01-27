@@ -1,0 +1,65 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formElement {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin: var(--paddingMed);
+  gap: var(--paddingMed);
+}
+
+input {
+  width: 30rem;
+  border: 0;
+  height: 2rem;
+}
+
+label {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  text-align: right;
+  padding: var(--paddingMin);
+  min-width: 11rem;
+}
+
+.btn {
+  border: none;
+  border-radius: var(--cornerRadiusMin);
+  padding: var(--paddingMed);
+  width: 20rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  /* margin: var(--paddingMed); */
+  cursor: pointer;
+  transition: all 0.07s ease-in-out 0s;
+}
+
+.btnSuccess {
+  color: var(--mainLight);
+  background-color: var(--actionSuccess);
+}
+
+/* .btnSuccess:hover {
+  background-color: var(--actionSuccessHover);
+} */
+
+.btnSuccess:active {
+  background-color: var(--actionSuccessActive);
+  transform: translate(0px, -2px);
+  box-shadow: 2px 2px 0px 2px inset rgba(0, 0, 0, 0.6);
+}
+
+.btnFail {
+  background-color: var(--actionFail);
+}
+
+
+/* .btnFail:hover {
+  background-color: var(--actionFailHover);
+} */

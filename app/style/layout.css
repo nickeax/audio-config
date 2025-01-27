@@ -71,32 +71,9 @@ img {
 }
 
 .sectionHeader {
-  text-align: left;
+  text-align: right;
   font-size: 1.5em;
   font-weight: 100;
   overflow: hidden;
   padding: var(--paddingMed);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.formElement {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  margin: var(--paddingMed);
-  gap: var(--paddingMed);
-}
-
-input {
-  width: 30rem;
-}
-
-label {
-  text-align: right;
-  padding: var(--paddingMin);
-  min-width: 11rem;
 }
