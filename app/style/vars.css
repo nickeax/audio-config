@@ -3,7 +3,7 @@
   --headerBackgroundColor: rgba(0, 0, 0, 0.2);
   --headerTextColor: rgba(255, 255, 255, 0.55);
   --darkerTintColor: rgba(0, 0, 0, 0.2);
-  --darkerTintColorHalf: rgba(255, 255, 255, 0.09);
+  --darkerTintColorHalf: rgba(255, 255, 255, 0.07);
 
   --darkest: #1C1C1C;
   --mainDark: hsl(207, 13%, 27%);
@@ -21,6 +21,10 @@
   --lightestHighlightSecondary: #FFFBF3;
   /* light red LED */
 
+  /* Transparencies */
+  --transparent: rgba(0, 0, 0, 0);
+  --transparentDark: rgba(0, 0, 0, 0.2);
+  --transparentLight: rgba(255, 255, 255, 0.5);
 
   --cornerRadiusMin: 7px;
   --cornerRadiusMed: 17px;

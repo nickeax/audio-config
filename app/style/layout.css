@@ -77,3 +77,26 @@ img {
   overflow: hidden;
   padding: var(--paddingMed);
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formElement {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin: var(--paddingMed);
+  gap: var(--paddingMed);
+}
+
+input {
+  width: 30rem;
+}
+
+label {
+  text-align: right;
+  padding: var(--paddingMin);
+  min-width: 11rem;
+}

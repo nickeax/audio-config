@@ -7,4 +7,8 @@ export class Ui {
   processClick() {
     throw new Error("Ui.processClick() not implemented");
   }
+
+  processInput() {
+    throw new Error("Ui.processInput() not implemented");
+  }
 }

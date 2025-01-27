@@ -28,4 +28,8 @@ export class Factory {
   createStudioRepository() {
     return new StudioRepository();
   }
+
+  createUtility() {
+    return new Utility();
+  }
 }

@@ -1,3 +1,5 @@
+import { Factory } from './factory.js';
+import { Utilities } from "./utilities.js";
 import { Studio } from '../models/studio.js';
 import { Rack } from '../models/rack.js';
 export class StudioManager {
@@ -124,64 +126,28 @@ export class StudioManager {
     this.studioOutput.appendChild(div1);
   }
 
-
   drawStudioCreateForm() {
     let form = document.createElement('form');
     form.id = 'studioCreateForm';
-    form.innerHTML = `
-      <label for="studioName">Studio Name</label>
-      <input type="text" id="studioName" name="studioName">
-      <button type="submit">Create Studio</button>
-    `;
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioName', 'Name'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioPurpose', 'Purpose'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioAddress', 'Studio Name'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'city', 'City'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'state', 'State'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'zip', 'Zip/postal code'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'phone', 'Phone'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'email', 'Email'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'website', 'Website'));
+    form.appendChild(Utilities.createFormElementWithLabel('input', 'notes', 'Notes'));
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       let studioName = document.getElementById('studioName').value;
       this.addStudio(new Studio(studioName));
     });
+
     return form;
   }
 
-  /*
-  <header class="topRadius">
-        <div class="sectionHeader topRadius">Studio Equipment Wrangler</div>
-     </header>
-  
-      <nav id="navOutput">
-        nav
-      </nav>
-  
-      <main id="studioOutput">
-  
-      </main>
-  
-      <div id="">
-        hello
-      </div>
-  
-      <div>
-  
-      </div>
-  */
 
-  drawMainScreen() {
-    console.log('Drawing main screen');
-
-    this.studioOutput.innerHTML = 'Hey kids!';
-  }
-
-  buildElement(tag, id, classes, text) {
-    let element = document.createElement(tag);
-    if (id) {
-      element.id = id;
-    }
-    if (classes) {
-      classes.forEach(c => {
-        element.classList.add(c);
-      });
-    }
-    if (text) {
-      element.innerText = text;
-    }
-    return element;
-  }
 }
