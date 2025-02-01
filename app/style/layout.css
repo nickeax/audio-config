@@ -72,8 +72,8 @@ img {
 
 .sectionHeader {
   text-align: right;
-  font-size: 1.5em;
+  font-size: 1.0em;
   font-weight: 100;
   overflow: hidden;
-  padding: var(--paddingMed);
+  padding: var(--paddingMin);
 }

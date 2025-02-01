@@ -2,34 +2,39 @@ import { StudioManager } from "./studioManager.js";
 import { StudioRepository } from "../repositories/studioRepository.js";
 import { StudioService } from "../services/studioService.js";
 import { Ui } from "./ui.js";
+import { Common } from "../models/common.js";
+import { Utilities } from "./utilities.js";
 
 export class Factory {
-  createInstance(className, ...args) {
+  static createInstance(className) {
     switch (className) {
-      case 'StudioManager': return this.createStudioManager();
       case 'Ui': return this.createUi();
+      case 'StudioService': return this.createStudioService();
+      case 'StudioManager': return this.createStudioManager();
+      case 'StudioRepository': return this.createStudioRepository();
+      case 'Utilities': return this.createUtility();
       default:
         break;
     }
   }
 
-  createStudioManager() {
+  static createStudioManager() {
     return new StudioManager(this.createStudioService());
   }
 
-  createUi() {
+  static createUi() {
     return new Ui(this.createStudioManager());
   }
 
-  createStudioService() {
+  static createStudioService() {
     return new StudioService(this.createStudioRepository());
   }
 
-  createStudioRepository() {
+  static createStudioRepository() {
     return new StudioRepository();
   }
 
-  createUtility() {
-    return new Utility();
+  static createUtility() {
+    return new Utilities();
   }
 }

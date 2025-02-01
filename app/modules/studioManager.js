@@ -1,9 +1,9 @@
 import { Factory } from './factory.js';
-import { Utilities } from "./utilities.js";
 import { Studio } from '../models/studio.js';
-import { Rack } from '../models/rack.js';
+import { Common } from '../models/common.js';
 export class StudioManager {
   constructor(studioService) {
+    this.utils = Factory.createInstance('Utilities');
     this.studioOutput = document.querySelector('#studioOutput');
     this.currentConfiguration = document.querySelector('#currentConfiguration');
     this.studioSelection = document.querySelector('#studioSelection');
@@ -19,30 +19,34 @@ export class StudioManager {
   }
 
   refreshState() {
-    let res = this.studioService.getStudios();
+    let res = [];
+    res = this.studioService.getStudios();
+    this.currentConfiguration.innerHTML = '';
 
     this.createStudioList(res.studios);
 
-    if (res.any) {
+    if (res.length > 0) {
       this.studios = res.studios;
+      this.currentConfiguration.appendChild(this.drawStudioCreateForm());
     } else {
       this.currentConfiguration.appendChild(this.drawStudioCreateForm());
     }
   }
 
   createStudioList(studios) {
+    this.studioSelection.innerHTML = '';
     if (studios.length > 0) {
       let ul = document.createElement('ul');
       studios.forEach(s => {
         let li = document.createElement('li');
         li.innerText = s.name;
+        li.id = `${Common.APP_ID}||${s.id}`;
         ul.appendChild(li);
       });
       this.studioSelection.appendChild(ul);
     } else {
       this.studioSelection.innerHTML = 'No studios found, please create one.';
     }
-
   }
 
   // Equipment
@@ -85,10 +89,22 @@ export class StudioManager {
   }
 
   // Studios
-  addStudio(studio) {
+  addStudio(inputData) {
+    console.log(inputData);
+    let newStudio = new Studio(inputData);
+    newStudio.created = new Date();
+    newStudio.modified = new Date();
+    newStudio.id = this.utils.generateId();
+
+    this.studioService.createStudio(newStudio);
+
+    this.refreshState();
+
   }
 
-  getStudios() {
+  getStudio(id) {
+    let res = this.studioService.getStudioById(id);
+    return res;
   }
 
   updateStudio(studio) {
@@ -120,32 +136,15 @@ export class StudioManager {
     main.id = 'studioOutput';
     main.innerHTML = 'main';
     this.studioOutput.appendChild(main);
-
-    const div1 = document.createElement('div');
-    div1.innerHTML = 'hello';
-    this.studioOutput.appendChild(div1);
   }
 
   drawStudioCreateForm() {
     let form = document.createElement('form');
     form.id = 'studioCreateForm';
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioName', ['darkerTintColour', 'textMainLight'], 'Name', 'Enter the studio name'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioPurpose', ['darkerTintColour', 'textMainLight'], 'Purpose', 'Primary purpose of the studio'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'studioAddress', ['darkerTintColour', 'textMainLight'], 'Studio Name', 'Title of studio'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'city', ['darkerTintColour', 'textMainLight'], 'City', 'Studio city name'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'state', ['darkerTintColour', 'textMainLight'], 'State', 'Studio state name'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'zip', ['darkerTintColour', 'textMainLight'], 'Zip/postal code', 'Studio zip/postal code'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'phone', ['darkerTintColour', 'textMainLight'], 'Phone', 'Studio phone number'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'email', ['darkerTintColour', 'textMainLight'], 'Email', 'Studio email address'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'website', ['darkerTintColour', 'textMainLight'], 'Website', 'Studio website'));
-    form.appendChild(Utilities.createFormElementWithLabel('input', 'notes', ['darkerTintColour', 'textMainLight'], 'Notes', 'Studio notes'));
-    form.appendChild(Utilities.createFormElementWithLabel('button', 'btnCreateStudio', ['btn', 'btnSuccess'], 'Create Studio'));
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      let studioName = document.getElementById('studioName').value;
-      this.addStudio(new Studio(studioName));
-    });
+    form.appendChild(this.utils.createFormElementWithLabel('input', 'studioName', ['darkerTintColour', 'textMainLight'], 'Name', 'Enter the studio name'));
+    form.appendChild(this.utils.createFormElementWithLabel('input', 'studioPurpose', ['darkerTintColour', 'textMainLight'], 'Purpose', 'Primary purpose of the studio'));
+    form.appendChild(this.utils.createFormElementWithLabel('textarea', 'notes', ['darkerTintColour', 'textMainLight'], 'Notes', 'Studio notes'));
+    form.appendChild(this.utils.createFormElementWithLabel('button', 'btnCreateStudio', ['btn', 'btnSuccess'], 'Create Studio', 'Notes relating to studio', ['studioName', 'notes', 'studioPurpose']));
 
     return form;
   }

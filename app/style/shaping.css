@@ -4,6 +4,32 @@
   /* border: 1px solid var(--darkerTintColorHalf); */
 }
 
+.bottomRadius {
+  border-bottom-left-radius: var(--cornerRadiusMin);
+  border-bottom-right-radius: var(--cornerRadiusMin);
+  /* border: 1px solid var(--darkerTintColorHalf); */
+}
+
+.topLeftRadius {
+  border-top-left-radius: var(--cornerRadiusMin);
+  /* border: 1px solid var(--darkerTintColorHalf); */
+}
+
+.topRightRadius {
+  border-top-right-radius: var(--cornerRadiusMin);
+  /* border: 1px solid var(--darkerTintColorHalf); */
+}
+
+.bottomLeftRadius {
+  border-bottom-left-radius: var(--cornerRadiusMin);
+  /* border: 1px solid var(--darkerTintColorHalf); */
+}
+
+.bottomRightRadius {
+  border-bottom-right-radius: var(--cornerRadiusMin);
+  /* border: 1px solid var(--darkerTintColorHalf); */
+}
+
 .sectionHeaderBorder {
   border: 1px solid var(--darkerTintColorHalf);
 }

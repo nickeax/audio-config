@@ -1,17 +1,30 @@
 import { StudioServiceResponse } from "../models/responses/studioServiceResponse.js";
-import { StudioRepository } from "../repositories/studioRepository.js";
+import { Factory } from "../modules/factory.js";
 
 export class StudioService {
   constructor(studioRepository) {
-    this.studioRepository = new StudioRepository();
+    this.studioRepository = Factory.createInstance('StudioRepository');
   }
 
-  async createStudio(studio) {
-    this.studios.push(studio);
+  createStudio(studio) {
+    console.log(studio);
+
+    this.studioRepository.createStudio(studio);
+
   }
 
   addEquipment(equipment) {
     throw new Error("StudioService.addEquipment() not implemented");
+  }
+
+  getStudioById(id) {
+    let res = this.studioRepository.getStudioById(id);
+    if (res) {
+      let ret = new StudioServiceResponse(true, [JSON.parse(res)])
+
+      return ret;
+    }
+    return new StudioServiceResponse(false);
   }
 
   getStudios() {
@@ -21,6 +34,7 @@ export class StudioService {
       ret.any = true;
       ret.studios = res;
     }
+
     return ret;
   }
 

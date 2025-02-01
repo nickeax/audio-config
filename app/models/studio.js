@@ -1,15 +1,13 @@
 export class Studio {
-  constructor() {
-    this.id = '';
-    this.name = '';
-    this.purpose = '';
-    this.address = '';
-    this.city = '';
-    this.state = '';
-    this.zip = '';
-    this.phone = '';
-    this.email = '';
-    this.website = '';
-    this.notes = '';
+  constructor(inputData) {
+    if (inputData) {
+      this.name = inputData.name;
+      this.purpose = inputData.purpose;
+      this.notes = inputData.notes;
+    } else {
+      this.name = '';
+      this.purpose = '';
+      this.notes = '';
+    }
   }
 }

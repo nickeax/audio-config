@@ -1,9 +1,15 @@
 export class Utilities {
-  static generateId() {
-    return Math.random().toString(36).substring(2, 9);
+  generateId(length = 16) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+
+    return result;
   }
 
-  static buildElement(tag, id, classes, text) {
+  buildElement(tag, id, classes, text) {
     let element = document.createElement(tag);
     if (id) {
       element.id = id;
@@ -16,10 +22,11 @@ export class Utilities {
     if (text) {
       element.innerText = text;
     }
+
     return element;
   }
 
-  static createFormElementWithLabel(type, id, classes, label, placeholder = '') {
+  createFormElementWithLabel(type, id, classes, label, placeholder = '', validateInputDependencies = []) {
     let formElement = document.createElement('div');
     formElement.classList.add('formElement');
 
@@ -38,22 +45,36 @@ export class Utilities {
       });
     }
 
+    inputElement.id = id;
 
     switch (type) {
       case 'input':
         inputElement.type = type;
-        inputElement.id = id;
         inputElement.placeholder = placeholder;
         break;
       case 'button':
         inputElement.innerText = label;
+        if (validateInputDependencies.length > 0)
+          inputElement.dataset.validateInputDependencies = validateInputDependencies.join('||');
+        break;
       case 'textarea':
+        inputElement.rows = 4;
+        inputElement.cols = 50;
+        inputElement.placeholder = placeholder;
         break;
       default:
         throw new Error('Invalid form element type');
     }
     formElement.appendChild(inputElement);
 
+
+
     return formElement;
+  }
+
+  removeChildNodes(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+    }
   }
 }

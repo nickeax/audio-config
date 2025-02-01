@@ -12,9 +12,23 @@ form {
 }
 
 input {
+  padding: var(--paddingMin);
   width: 30rem;
   border: 0;
   height: 2rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-style: italic;
+  color: var(--mainDark);
+}
+
+textarea {
+  padding: var(--paddingMin);
+  width: 30rem;
+  border: 0;
+  height: 6rem;
 }
 
 label {
@@ -43,6 +57,15 @@ label {
 .btnSuccess {
   color: var(--mainLight);
   background-color: var(--actionSuccess);
+}
+
+.btn:disabled {
+  background-color: var(--mainDark);
+  color: var(--mainLight);
+}
+
+.btnDisabled {
+  cursor: not-allowed;
 }
 
 /* .btnSuccess:hover {

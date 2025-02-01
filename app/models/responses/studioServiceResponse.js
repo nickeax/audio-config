@@ -1,6 +1,6 @@
 export class StudioServiceResponse {
-  constructor() {
-    this.any = false;
-    this.studios = [];
+  constructor(results = false, studios = []) {
+    this.any = results;
+    this.studios = studios
   }
 }
