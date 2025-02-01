@@ -20,8 +20,8 @@ export class Ui {
     if (ev.target.nodeName === 'BUTTON') {
       let targetButton = this.buttons.find(x => x == ev.target);
 
-      if (targetButton) {
-        switch (targetButton.id) {
+      if (ev.target.id) {
+        switch (ev.target.id) {
           case 'btnCreateStudio':
             this.studioManager.addStudio({
               name: this.inputs[0].value,
@@ -30,14 +30,24 @@ export class Ui {
             });
             this.init();
             break;
+          case 'btnNewStudio':
+            this.studioManager.currentStudio = null;
+            console.log('Hello New Studio');
+            this.studioManager.refreshState();
+            this.init();
+            break;
 
           default:
             break;
         }
       }
     } else if (ev.target.nodeName === 'LI') {
-      let key = `${Common.APP_ID}||${ev.target.innerText}`;
-      let stud = this.studioManager.getStudio(key);
+      switch (ev.target.id) {
+        default:
+          let key = `${Common.APP_ID}||${ev.target.innerText}`;
+          let stud = this.studioManager.getStudio(key);
+          break;
+      }
     }
   }
 
@@ -57,6 +67,9 @@ export class Ui {
     let isValid = true;
     this.buttons.forEach(function (button) {
       button.isValid = false;
+      if (button.dataset.validateInputDependencies === undefined) {
+        return;
+      }
       let validationIds = button.dataset.validateInputDependencies.split('||');
 
       validationIds.forEach(vi => {

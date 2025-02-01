@@ -25,6 +25,9 @@
   --actionSuccess: hsl(120, 41%, 32%);
   --actionSuccessHover: hsl(120, 41%, 42%);
   --actionSuccessActive: hsl(120, 41%, 35%);
+  --actionOperation: hsl(206, 88%, 41%);
+  --actionOperationHover: hsl(206, 88%, 51%);
+  --actionOperationActive: hsl(206, 88%, 31%);
   --actionFail: hsl(0, 45%, 43%);
   --actionFailHover: hsl(0, 45%, 53%);
   --actionFailActive: hsl(0, 45%, 46%);

@@ -26,7 +26,9 @@ export class Utilities {
     return element;
   }
 
-  createFormElementWithLabel(type, id, classes, label, placeholder = '', validateInputDependencies = []) {
+  createFormElementWithLabel(type, id, classes, label, placeholder = '', validateInputDependencies = [], val = '', buttonLabel = '') {
+
+    console.log(label);
     let formElement = document.createElement('div');
     formElement.classList.add('formElement');
 
@@ -34,7 +36,6 @@ export class Utilities {
     labelElement.id = id + 'Label';
     labelElement.for = id;
     labelElement.innerText = label;
-
     formElement.appendChild(labelElement);
 
     let inputElement = document.createElement(type);
@@ -51,9 +52,11 @@ export class Utilities {
       case 'input':
         inputElement.type = type;
         inputElement.placeholder = placeholder;
+        inputElement.value = val;
         break;
       case 'button':
-        inputElement.innerText = label;
+        labelElement.innerText = '';
+        inputElement.innerText = buttonLabel;
         if (validateInputDependencies.length > 0)
           inputElement.dataset.validateInputDependencies = validateInputDependencies.join('||');
         break;
@@ -61,13 +64,12 @@ export class Utilities {
         inputElement.rows = 4;
         inputElement.cols = 50;
         inputElement.placeholder = placeholder;
+        inputElement.value = val;
         break;
       default:
         throw new Error('Invalid form element type');
     }
     formElement.appendChild(inputElement);
-
-
 
     return formElement;
   }

@@ -44,7 +44,7 @@ label {
   border: none;
   border-radius: var(--cornerRadiusMin);
   padding: var(--paddingMed);
-  width: 20rem;
+  /* width: 20rem; */
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -59,6 +59,46 @@ label {
   background-color: var(--actionSuccess);
 }
 
+.btnSuccess:hover {
+  background-color: var(--actionSuccessHover);
+}
+
+.btnSuccess:active {
+  background-color: var(--actionSuccessActive);
+  transform: translate(0px, -2px);
+  box-shadow: 2px 2px 0px 2px inset rgba(0, 0, 0, 0.6);
+}
+
+.btnOperation {
+  color: var(--mainLight);
+  background-color: var(--actionOperation);
+}
+
+.btnOperation:hover {
+  background-color: var(--actionOperationHover);
+}
+
+.btnOperation:active {
+  background-color: var(--actionOperationActive);
+  transform: translate(0px, -2px);
+  box-shadow: 2px 2px 0px 2px inset rgba(0, 0, 0, 0.6);
+}
+
+.btnDanger {
+  color: var(--mainLight);
+  background-color: var(--actionFail);
+}
+
+.btnDanger:hover {
+  background-color: var(--actionFailHover);
+}
+
+.btnDanger:active {
+  background-color: var(--actionFailActive);
+  transform: translate(0px, -2px);
+  box-shadow: 2px 2px 0px 2px inset rgba(0, 0, 0, 0.6);
+}
+
 .btn:disabled {
   background-color: var(--mainDark);
   color: var(--mainLight);
@@ -68,18 +108,30 @@ label {
   cursor: not-allowed;
 }
 
-/* .btnSuccess:hover {
-  background-color: var(--actionSuccessHover);
-} */
-
-.btnSuccess:active {
-  background-color: var(--actionSuccessActive);
-  transform: translate(0px, -2px);
-  box-shadow: 2px 2px 0px 2px inset rgba(0, 0, 0, 0.6);
-}
 
 .btnFail {
   background-color: var(--actionFail);
+}
+
+.btn-sml {
+  padding: 2px;
+  width: 5rem;
+}
+
+.listItemButton {
+  display: inline-block;
+  width: 80%;
+  padding: var(--paddingMin);
+  margin: var(--paddingMin);
+  color: var(--mainDark);
+  background-color: var(--mainSecondary);
+  transition: all 0.17s ease-in-out 0s;
+}
+
+.listItemButton:hover {
+  color: var(--mainLight);
+  cursor: pointer;
+  background-color: var(--mainDark);
 }
 
 

@@ -10,7 +10,7 @@ export class StudioManager {
 
     this.studioService = studioService;
 
-    this.currentStudio = new Studio();
+    this.currentStudio = null;
     this.equipment = [];
     this.racks = [];
     this.patchBays = [];
@@ -29,6 +29,10 @@ export class StudioManager {
       this.studios = res.studios;
       this.currentConfiguration.appendChild(this.drawStudioCreateForm());
     } else {
+      console.log('Refreshing state');
+      if (this.currentStudio) {
+        this.currentConfiguration.appendChild(this.drawStudioCreateForm());
+      }
       this.currentConfiguration.appendChild(this.drawStudioCreateForm());
     }
   }
@@ -39,10 +43,17 @@ export class StudioManager {
       let ul = document.createElement('ul');
       studios.forEach(s => {
         let li = document.createElement('li');
+        li.classList.add('listItemButton');
         li.innerText = s.name;
         li.id = `${Common.APP_ID}||${s.id}`;
         ul.appendChild(li);
       });
+      let btn = document.createElement('button');
+      btn.classList.add('btn', 'btn-small', 'btnSuccess');
+      btn.innerText = 'Create Studio...';
+      btn.id = 'btnNewStudio';
+      ul.appendChild(btn);
+
       this.studioSelection.appendChild(ul);
     } else {
       this.studioSelection.innerHTML = 'No studios found, please create one.';
@@ -104,6 +115,10 @@ export class StudioManager {
 
   getStudio(id) {
     let res = this.studioService.getStudioById(id);
+    this.currentStudio = res.studios[0];
+    this.currentConfiguration.innerHTML = '';
+    this.currentConfiguration.appendChild(this.drawStudioCreateForm());
+
     return res;
   }
 
@@ -141,10 +156,23 @@ export class StudioManager {
   drawStudioCreateForm() {
     let form = document.createElement('form');
     form.id = 'studioCreateForm';
-    form.appendChild(this.utils.createFormElementWithLabel('input', 'studioName', ['darkerTintColour', 'textMainLight'], 'Name', 'Enter the studio name'));
-    form.appendChild(this.utils.createFormElementWithLabel('input', 'studioPurpose', ['darkerTintColour', 'textMainLight'], 'Purpose', 'Primary purpose of the studio'));
-    form.appendChild(this.utils.createFormElementWithLabel('textarea', 'notes', ['darkerTintColour', 'textMainLight'], 'Notes', 'Studio notes'));
-    form.appendChild(this.utils.createFormElementWithLabel('button', 'btnCreateStudio', ['btn', 'btnSuccess'], 'Create Studio', 'Notes relating to studio', ['studioName', 'notes', 'studioPurpose']));
+    console.log(this.currentStudio);
+
+    if (this.currentStudio !== null) {
+      console.log(this.currentStudio.name);
+
+      form.appendChild(this.utils.createFormElementWithLabel('input', 'studioName', ['darkerTintColour', 'textMainLight'], 'Name', 'Enter the studio name', ['studioName'], this.currentStudio.name));
+      form.appendChild(this.utils.createFormElementWithLabel('input', 'studioPurpose', ['darkerTintColour', 'textMainLight'], 'Purpose', 'Primary purpose of the studio', ['studioPurpose'], this.currentStudio.purpose));
+      form.appendChild(this.utils.createFormElementWithLabel('textarea', 'notes', ['darkerTintColour', 'textMainLight'], 'Notes', 'Studio notes', ['notes'], this.currentStudio.notes));
+      form.appendChild(this.utils.createFormElementWithLabel('button', 'btnUpdateStudio', ['btn', 'btnOperation'], 'Update Studio', 'Notes relating to studio', [], null, 'Update'));
+      form.appendChild(this.utils.createFormElementWithLabel('button', 'btnDeleteStudio', ['btn', 'btnDanger'], 'Delete Studio', 'Notes relating to studio', [], null, 'Delete'));
+    } else {
+      form.appendChild(this.utils.createFormElementWithLabel('input', 'studioName', ['darkerTintColour', 'textMainLight'], 'Name', 'Enter the studio name'));
+      form.appendChild(this.utils.createFormElementWithLabel('input', 'studioPurpose', ['darkerTintColour', 'textMainLight'], 'Purpose', 'Primary purpose of the studio'));
+      form.appendChild(this.utils.createFormElementWithLabel('textarea', 'notes', ['darkerTintColour', 'textMainLight'], 'Notes', 'Studio notes'));
+      form.appendChild(this.utils.createFormElementWithLabel('button', 'btnCreateStudio', ['btn', 'btnSuccess'], 'Create Studio', 'Notes relating to studio', ['studioName', 'notes', 'studioPurpose'], null, 'Create Studio'));
+    }
+
 
     return form;
   }
