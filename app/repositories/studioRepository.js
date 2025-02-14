@@ -10,7 +10,13 @@ export class StudioRepository {
 
   // Add a studio to the repository
   createStudio(studio) {
-    localStorage.setItem(`${Common.APP_ID}||${studio.name}`, JSON.stringify(studio));
+    let testStudio = this.getStudios().find(s => s.id === studio.id);
+    if (testStudio) {
+      localStorage.setItem(`${Common.APP_ID}||${studio.name}`, JSON.stringify(studio));
+    } else {
+      this.studios.push(studio);
+      localStorage.setItem('studios', JSON.stringify(this.studios));
+    }
   }
 
   // Get all studios from the repository

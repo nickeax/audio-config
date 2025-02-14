@@ -29,7 +29,6 @@ export class StudioManager {
       this.studios = res.studios;
       this.currentConfiguration.appendChild(this.drawStudioCreateForm());
     } else {
-      console.log('Refreshing state');
       if (this.currentStudio) {
         this.currentConfiguration.appendChild(this.drawStudioCreateForm());
       }
@@ -101,7 +100,6 @@ export class StudioManager {
 
   // Studios
   addStudio(inputData) {
-    console.log(inputData);
     let newStudio = new Studio(inputData);
     newStudio.created = new Date();
     newStudio.modified = new Date();
@@ -110,6 +108,14 @@ export class StudioManager {
     this.studioService.createStudio(newStudio);
 
     this.refreshState();
+
+  }
+
+  updateStudio(inputData) {
+    console.log('studioManager.updateStudio', inputData);
+    let studio = new Studio(inputData);
+    studio.modified = new Date();
+    studio.id = this.currentStudio.id;
 
   }
 
@@ -156,11 +162,8 @@ export class StudioManager {
   drawStudioCreateForm() {
     let form = document.createElement('form');
     form.id = 'studioCreateForm';
-    console.log(this.currentStudio);
 
     if (this.currentStudio !== null) {
-      console.log(this.currentStudio.name);
-
       form.appendChild(this.utils.createFormElementWithLabel('input', 'studioName', ['darkerTintColour', 'textMainLight'], 'Name', 'Enter the studio name', ['studioName'], this.currentStudio.name));
       form.appendChild(this.utils.createFormElementWithLabel('input', 'studioPurpose', ['darkerTintColour', 'textMainLight'], 'Purpose', 'Primary purpose of the studio', ['studioPurpose'], this.currentStudio.purpose));
       form.appendChild(this.utils.createFormElementWithLabel('textarea', 'notes', ['darkerTintColour', 'textMainLight'], 'Notes', 'Studio notes', ['notes'], this.currentStudio.notes));
@@ -172,7 +175,6 @@ export class StudioManager {
       form.appendChild(this.utils.createFormElementWithLabel('textarea', 'notes', ['darkerTintColour', 'textMainLight'], 'Notes', 'Studio notes'));
       form.appendChild(this.utils.createFormElementWithLabel('button', 'btnCreateStudio', ['btn', 'btnSuccess'], 'Create Studio', 'Notes relating to studio', ['studioName', 'notes', 'studioPurpose'], null, 'Create Studio'));
     }
-
 
     return form;
   }

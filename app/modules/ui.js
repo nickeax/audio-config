@@ -36,6 +36,17 @@ export class Ui {
             this.studioManager.refreshState();
             this.init();
             break;
+          case 'btnUpdateStudio':
+            console.log(`Updating studio: ${this.inputs[0].value}`);
+            let { name, purpose, notes } = this.getStudioFormValues();
+            this.studioManager.updateStudio({
+              id: this.studioManager.currentStudio.id,
+              name: name,
+              purpose: purpose,
+              notes: notes
+            });
+            this.init();
+            break;
 
           default:
             break;
@@ -53,6 +64,14 @@ export class Ui {
 
   processInput(ev) {
     this.setActiveButtons();
+  }
+
+  getStudioFormValues() {
+    return {
+      name: document.querySelector('#studioName').value,
+      purpose: document.querySelector('#studioPurpose').value,
+      notes: document.querySelector('#notes').value
+    };
   }
 
   init() {

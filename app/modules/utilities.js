@@ -27,8 +27,6 @@ export class Utilities {
   }
 
   createFormElementWithLabel(type, id, classes, label, placeholder = '', validateInputDependencies = [], val = '', buttonLabel = '') {
-
-    console.log(label);
     let formElement = document.createElement('div');
     formElement.classList.add('formElement');
 
